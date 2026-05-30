@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Маме 50</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="garland">
+            <div class="bulb bulb-1"></div>
+            <div class="bulb bulb-2"></div>
+            <div class="bulb bulb-1"></div>
+            <div class="bulb bulb-2"></div>
+            <div class="bulb bulb-1"></div>
+            <div class="bulb bulb-2"></div>
+        </div>
+        <h1>Happy Birthday, Mom!</h1>
+    </header>
+
+    <main class="container">
+        <section class="block">
+            <h2>Самый главный день ✨</h2>
+            <div class="card" onclick="openFull('photo1.jpg')"><img src="photo1.jpg"></div>
+            <div class="card" onclick="openFull('photo2.jpg')"><img src="photo2.jpg"></div>
+        </section>
+
+        <section class="block">
+            <h2>Твоя сияющая улыбка 🤍</h2>
+            <div class="card" onclick="openFull('photo3.jpg')"><img src="photo3.jpg"></div>
+            <div class="card" onclick="openFull('photo4.jpg')"><img src="photo4.jpg"></div>
+            <div class="card" onclick="openFull('photo5.jpg')"><img src="photo5.jpg"></div>
+        </section>
+
+        <section class="block">
+            <h2>Любимые люди 🪵</h2>
+            <div class="card" onclick="openFull('photo6.jpg')"><img src="photo6.jpg"></div>
+            <div class="card" onclick="openFull('photo7.jpg')"><img src="photo7.jpg"></div>
+        </section>
+
+        <section class="block">
+            <h2>Атмосфера праздника ✨</h2>
+            <div class="card" onclick="openFull('photo8.jpg')"><img src="photo8.jpg"></div>
+            <div class="card" onclick="openFull('photo9.jpg')"><img src="photo9.jpg"></div>
+            <div class="card" onclick="openFull('photo10.jpg')"><img src="photo10.jpg"></div>
+        </section>
+
+        <section class="block">
+            <h2>С любовью, от нас 🥂</h2>
+            <div class="card" onclick="openFull('photo11.jpg')"><img src="photo11.jpg"></div>
+            <div class="card" onclick="openFull('photo12.jpg')"><img src="photo12.jpg"></div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>Сделано с любовью для мамы • 2026</p>
+    </footer>
+
+    <div id="modal" onclick="this.style.display='none'">
+        <img id="big-img">
+    </div>
+
+    <script>
+        function openFull(src) {
+            document.getElementById('big-img').src = src;
+            document.getElementById('modal').style.display = 'flex';
+        }
+        const cards = document.querySelectorAll('.card');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('show'); });
+        }, { threshold: 0.2 });
+        cards.forEach(c => observer.observe(c));
+    </script>
+</body>
+</html>
